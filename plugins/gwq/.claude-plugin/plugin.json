@@ -1,0 +1,12 @@
+{
+  "name": "gwq",
+  "displayName": "gwq worktree helper",
+  "version": "0.1.0",
+  "description": "Use gwq to manage Git worktrees so they always live in a fixed, predictable location.",
+  "author": {
+    "name": "Mikihiro SUDA",
+    "email": "suda.mikihiro@gmail.com"
+  },
+  "keywords": ["git", "worktree", "gwq"],
+  "license": "MIT"
+}
