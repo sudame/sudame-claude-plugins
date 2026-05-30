@@ -32,6 +32,21 @@ gwq add feature/existing
 
 パス引数は渡さないこと。`-s`/`--stay`（シェルを起動する）も使わないこと。
 
+## worktree 作成後のセットアップ（mise を使うリポジトリ）
+
+リポジトリが mise を使っている（`.mise.toml` / `mise.toml` / `.config/mise/config.toml`
+などがある）場合、worktree を作るたびに `mise trust` が必要になる。`~/.config/gwq/config.toml`
+の `repository_settings` に `setup_commands` を足しておくと、`gwq add` のたびに自動実行される：
+
+```toml
+[[repository_settings]]
+repository = "~/workspace/github.com/<owner>/<repo>"
+setup_commands = ["mise trust"]
+```
+
+`repository` はリポジトリのルートパス、`setup_commands` は worktree 作成後に走らせる
+コマンドの配列。mise を使うリポジトリで未設定なら、この設定を足すことを提案・実施すること。
+
 ## worktree のパスを調べて移動する
 
 `gwq cd` は新しい対話シェルを立ち上げる。人間には便利だが、エージェントにとっては
